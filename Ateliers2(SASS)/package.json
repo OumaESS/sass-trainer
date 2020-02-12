@@ -1,0 +1,15 @@
+{
+  "name": "hhh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compiler:sass": "node-sass sass/style.scss css/style.css -w"
+  },
+  "author": "oumaima",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "dependencies": {},
+  "description": ""
+}

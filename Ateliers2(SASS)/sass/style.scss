@@ -1,0 +1,163 @@
+$color-blue: hsl(223, 87%, 63%);
+$pale-blue: hsl(223, 100%, 88%);
+$light-red: hsl(354, 100%, 66%);
+$gray: hsl(0, 0%, 59%);
+$dark-blue: hsl(209, 33%, 12%);
+$color-silver: silver;
+$width-responsive: 600px;
+
+//////héritage///////
+%btn1{
+    padding:10px;
+    border-radius:100px;
+    color:white;
+    background-color: $color-blue;
+}
+
+
+//////mixin///////
+@mixin hover {
+    &:hover {
+      background-color: $light-red;
+      box-shadow: hsl(223, 87%, 63%);
+    }
+  }
+
+@mixin modif {
+    margin-right: 1em;
+    width: $width-responsive / 1.5;
+    padding: 1.2em 2em;
+    border-radius: 2em;
+    border: 1px solid $color-silver ;
+}
+
+@mixin media {
+    &:hover {
+      background-color:$pale-blue ; 
+    }
+  }
+
+@mixin h4 {
+    font-size: .9rem;
+    margin: 1rem 0;
+    color: $gray;
+    font-weight: normal;
+    font-size: 60%;  
+}
+
+///////body////////
+
+body {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    font-family: 'Libre Franklin', sans-serif;
+    
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90px;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+
+}
+
+.container{
+    text-align: center;
+    &__soon{
+        &--spn{
+            color:$gray;
+            font-weight: normal;
+        }      
+    }
+    &__subscribe{
+        &--prg{
+            font-weight: 500;
+            color:$dark-blue;
+        }
+        } 
+    }
+.form {
+    display: flex;
+    justify-content: center;
+        &__input {
+            &--email {
+                @include modif();
+            }
+              }
+            &__button{
+                &--submit{
+                    @include modif();  
+                    @include hover();
+                    @extend %btn1;
+                    width: $width-responsive/5;
+                    cursor: pointer;
+                }
+            }
+} 
+
+//////Cette partie ne concerne pas l'annotation BEM donc ne la changez pas-->
+
+.dash__dashboard{
+    padding: 5%;
+    width: 90vw;
+    max-width: 55%;
+    display: inline-block;
+}
+
+#social{
+    margin-top: 8rem;
+    i{
+    font-size: 1rem;
+    color:$color-blue ;
+    border: 0.3px solid ;
+    padding: .5rem;
+    border-radius: 100%;
+    margin: .5rem;
+    @include media();
+}
+}
+
+h4{
+    @include h4();
+}
+
+.attribution { 
+    font-size: 11px; 
+    padding: 0;
+    color:$color-blue ;
+   a{
+    text-decoration: none;
+    color:$color-blue;
+
+   }
+   
+}
+
+
+@media only screen and (max-width: 600px) {
+    .form{
+        display: block;
+        justify-content: center;
+        &__input {
+            &--email {
+              width: 40%;
+              height: .0rem;
+            }
+          }
+
+        &__button{ 
+            &--submit{
+                width: 51%;
+                margin-top: 1em;
+                padding: 1em;
+                font-size: .6em;
+                
+    }
+    
+    } 
+    }
+    }
